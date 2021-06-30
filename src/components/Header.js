@@ -11,7 +11,7 @@ const NavBar = () => {
 
     a {
       text-decoration: none;
-      padding: 15px 22px 15px 22px;
+      padding: 15px 0px 15px 44px;
       color: white;
     }
 
