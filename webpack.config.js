@@ -1,7 +1,8 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const htmlPlugin = new HtmlWebPackPlugin({
-  template: './src/index.html',
+  template: './public/index.html',
   filename: './index.html',
+  favicon: './public/favicon.ico',
 });
 
 const path = require('path');
@@ -29,6 +30,7 @@ module.exports = {
     alias: {
       '@': path.resolve(__dirname, 'src'),
       '@components': path.resolve(__dirname, 'src/components'),
+      '@views': path.resolve(__dirname, 'src/views'),
     },
   },
 };
