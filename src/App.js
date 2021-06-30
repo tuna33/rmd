@@ -9,7 +9,7 @@ import styled, { css } from 'styled-components';
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 14% 72% 14%;
-  grid-template-rows: 5% 93%;
+  grid-template-rows: 5% 95%;
   gap: 0px 0px;
   grid-template-areas:
     '. header .'
