@@ -22,6 +22,10 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(png|jpg)$/,
+        type: 'asset/inline',
+      },
     ],
   },
   plugins: [htmlPlugin],
@@ -31,6 +35,7 @@ module.exports = {
       '@': path.resolve(__dirname, 'src'),
       '@components': path.resolve(__dirname, 'src/components'),
       '@views': path.resolve(__dirname, 'src/views'),
+      '@assets': path.resolve(__dirname, 'src/assets'),
     },
   },
 };

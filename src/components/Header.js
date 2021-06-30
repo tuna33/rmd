@@ -11,7 +11,7 @@ const NavBar = () => {
 
     a {
       text-decoration: none;
-      padding: 15px 0px 15px 44px;
+      margin: 0.5em 0em 0.5em 3em;
       color: white;
     }
 
@@ -38,7 +38,7 @@ const NavBar = () => {
 
 const Logo = () => {
   const LogoText = styled.label`
-    padding: 15px 0px 15px 0px;
+    margin: 0.5em 0em 0.5em 0em;
     color: white;
   `;
 

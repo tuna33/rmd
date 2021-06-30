@@ -20,6 +20,9 @@ const baseHeaderStyles = css`
   background-color: #202020;
   background-color: 3px solid #a0a0a0;
   font-size: 1rem;
+  @media (min-width: 2560px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const DummyHeaderDiv = styled.div`

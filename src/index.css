@@ -4,3 +4,18 @@ body {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 100%;
 }
+
+/* 
+  Pass the height down to a view's content.
+  Done so that the home page can have the art at the bottom.
+  It does "ruin" elements like the header that will stretch now.
+  Their font won't, so media queries are necessary for unaccounted displays.
+  Thanks to: https://stackoverflow.com/a/42877693 
+*/
+html,
+body,
+#root,
+#root > div,
+#root > div > div > div {
+  height: 100%;
+}
