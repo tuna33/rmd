@@ -1,6 +1,8 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 
 import styled from 'styled-components';
+import { PrimaryButton } from '@components';
 
 const art = require('@assets/mtg-golen.jpg');
 
@@ -35,7 +37,9 @@ const Title = styled.h1`
   margin-left: 15%;
 `;
 
-const Thing = (props) => {
+const WelcomePanel = (props) => {
+  const history = useHistory();
+
   return (
     <div>
       <Title>
@@ -59,8 +63,9 @@ const Thing = (props) => {
         </p>
       </div>
 
-      {/* TODO: make this button a rounded primary button component */}
-      <button style={{ marginTop: '3%' }}>Play Now</button>
+      <PrimaryButton
+        text="PLAY NOW"
+        onClick={() => history.push('/play')} />
     </div>
   );
 };
@@ -73,14 +78,13 @@ export const HomePage = (props) => {
       <TextGrid>
         <div />
         <div />
-        <Thing />
+        <WelcomePanel />
         <div />
         <div />
         <div />
       </TextGrid>
       <div
         style={{
-          backgroundColor: 'red',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'flex-end',
