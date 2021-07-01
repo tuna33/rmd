@@ -3,8 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import styled from 'styled-components';
 
-const NavBar = () => {
-  const NavUnlisted = styled.div`
+const NavUnlisted = styled.div`
     padding: 0px;
     display: flex;
     justify-content: space-between;
@@ -20,6 +19,7 @@ const NavBar = () => {
     }
   `;
 
+const NavBar = () => {
   return (
     <NavUnlisted>
       <NavLink to="/" activeClassName="current" exact>
@@ -36,25 +36,25 @@ const NavBar = () => {
   );
 };
 
-const Logo = () => {
-  const LogoText = styled.label`
-    margin: 0.5em 0em 0.5em 0em;
-    color: white;
-  `;
+const LogoText = styled.label`
+  margin: 0.5em 0em 0.5em 0em;
+  color: white;
+`;
 
+const Logo = () => {
   return <LogoText>RandomMagicDeck</LogoText>;
 };
 
-const Header = (props) => {
-  const baseStyle = props.baseStyle;
-  const HeaderDiv = styled.div`
-    ${baseStyle};
+const HeaderDiv = styled.div`
+    ${props => props.baseStyle};
     display: flex;
     justify-content: space-between;
   `;
 
+const Header = (props) => {
+  const baseStyle = props.baseStyle;
   return (
-    <HeaderDiv>
+    <HeaderDiv baseStyle={baseStyle}>
       <Logo />
       <div />
       <NavBar />
