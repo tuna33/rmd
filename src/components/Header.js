@@ -14,6 +14,12 @@ const NavUnlisted = styled.div`
       color: white;
     }
 
+    @media (min-width: 2560px) {
+      a {
+        margin: 1em 0em 1em 3em;
+      }
+    }
+
     .current {
       color: #f7b267;
     }
@@ -38,6 +44,11 @@ const NavBar = () => {
 
 const LogoText = styled.label`
   margin: 0.5em 0em 0.5em 0em;
+  
+  @media (min-width: 2560px) {
+    margin: 1em 0em 1em 0em;
+  }
+
   color: white;
 `;
 
