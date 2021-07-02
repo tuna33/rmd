@@ -69,7 +69,7 @@ const WelcomePanel = (props) => {
 };
 
 const WelcomeDescription = {
-  text: 'Art from https://www.artofmtg.com/art/golem-token-3/',
+  text: '"Golen Token" by Andrew Mar',
   color: '#fff',
   background: '#202020',
   fontSize: '0.8em',

@@ -26,7 +26,7 @@ const DescriptionText = styled.p`
   background: ${(props) => props.background || 'none'};
   padding: ${(props) => props.padding || '1% 1%'};
   @media (min-width: 2560px) {
-		/* Code below is ugly, but it can stay for the moment */
+    /* Code below is ugly, but it can stay for the moment */
     font-size: ${(props) =>
       props.fontSize ? parseFloat(props.fontSize) * 2 : 1.5}em;
   }
