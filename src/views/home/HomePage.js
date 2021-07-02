@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router';
 
 import styled from 'styled-components';
-import { PrimaryButton } from '@components';
+import { PrimaryButton, HoverableImage } from '@components';
 
 const art = require('@assets/mtg-golen.jpg');
 
@@ -68,6 +68,17 @@ const WelcomePanel = (props) => {
   );
 };
 
+const WelcomeDescription = {
+  text: 'Art from https://www.artofmtg.com/art/golem-token-3/',
+  color: '#fff',
+  background: '#202020',
+  fontSize: '0.8em',
+};
+
+const WelcomeBanner = () => {
+  return <HoverableImage description={WelcomeDescription} src={art} />;
+};
+
 export const HomePage = (props) => {
   return (
     <MainGrid>
@@ -81,16 +92,7 @@ export const HomePage = (props) => {
         <div />
         <div />
       </TextGrid>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'flex-end',
-        }}
-      >
-        {/* TODO: make this image "hoverable" with artist credits */}
-        <img src={art} style={{ height: '100%' }} />
-      </div>
+      <WelcomeBanner />
     </MainGrid>
   );
 };
