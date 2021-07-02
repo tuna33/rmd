@@ -4,26 +4,26 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const NavUnlisted = styled.div`
-    padding: 0px;
-    display: flex;
-    justify-content: space-between;
+  padding: 0px;
+  display: flex;
+  justify-content: space-between;
 
+  a {
+    text-decoration: none;
+    margin: 0.5em 0em 0.5em 3em;
+    color: white;
+  }
+
+  @media (min-width: 2560px) {
     a {
-      text-decoration: none;
-      margin: 0.5em 0em 0.5em 3em;
-      color: white;
+      margin: 1em 0em 1em 3em;
     }
+  }
 
-    @media (min-width: 2560px) {
-      a {
-        margin: 1em 0em 1em 3em;
-      }
-    }
-
-    .current {
-      color: #f7b267;
-    }
-  `;
+  .current {
+    color: #f7b267;
+  }
+`;
 
 const NavBar = () => {
   return (
@@ -44,7 +44,7 @@ const NavBar = () => {
 
 const LogoText = styled.label`
   margin: 0.5em 0em 0.5em 0em;
-  
+
   @media (min-width: 2560px) {
     margin: 1em 0em 1em 0em;
   }
@@ -57,10 +57,10 @@ const Logo = () => {
 };
 
 const HeaderDiv = styled.div`
-    ${props => props.baseStyle};
-    display: flex;
-    justify-content: space-between;
-  `;
+  ${(props) => props.baseStyle};
+  display: flex;
+  justify-content: space-between;
+`;
 
 const Header = (props) => {
   const baseStyle = props.baseStyle;

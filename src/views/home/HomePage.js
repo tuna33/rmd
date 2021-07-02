@@ -63,9 +63,7 @@ const WelcomePanel = (props) => {
         </p>
       </div>
 
-      <PrimaryButton
-        text="PLAY NOW"
-        onClick={() => history.push('/play')} />
+      <PrimaryButton text="PLAY NOW" onClick={() => history.push('/play')} />
     </div>
   );
 };
