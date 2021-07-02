@@ -3,6 +3,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
   template: './public/index.html',
   filename: './index.html',
   favicon: './public/favicon.ico',
+  publicPath: '/',
 });
 
 const path = require('path');
@@ -27,6 +28,9 @@ module.exports = {
         type: 'asset/inline',
       },
     ],
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   plugins: [htmlPlugin],
   resolve: {
