@@ -11,6 +11,7 @@ const ImageWrapper = styled.div`
   background-repeat: no-repeat;
   background-position: 50% 100%;
   background-size: 100%;
+  height: 100%;
 
   :hover {
     p {
@@ -38,9 +39,10 @@ export const HoverableImage = (props) => {
   const color = props.description.color;
   const background = props.description.background;
   const fontSize = props.description.fontSize;
+  const onClick = props.onClick;
 
   return (
-    <ImageWrapper src={src}>
+    <ImageWrapper src={src} onClick={onClick}>
       <DescriptionText
         color={color}
         background={background}

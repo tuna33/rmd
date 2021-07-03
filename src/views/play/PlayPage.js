@@ -25,7 +25,7 @@ export const PlayPage = (props) => {
         <CardPanel title="CURRENT CARD" card={activeCard} />
         <FilterPanel title="CARD FILTERS" />
       </div>
-      <DeckPanel title="MY DECK (8/60)" />
+      <DeckPanel title="MY DECK (8/60)" dummyCard={dummyCard} />
     </Grid>
   );
 };

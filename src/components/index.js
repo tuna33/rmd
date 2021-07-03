@@ -6,7 +6,7 @@ import {
   RectangularPanelHeader,
 } from './RectangularPanel';
 import { ActionGroup } from './ActionGroup';
-import { DummyCard } from './Card';
+import { DummyCard, Card } from './Card';
 
 export {
   Header,
@@ -18,4 +18,5 @@ export {
   RectangularPanelHeader,
   ActionGroup,
   DummyCard,
+  Card,
 };

@@ -3,17 +3,28 @@ import React from 'react';
 import {
   RectangularPanelBody,
   RectangularPanelHeader,
-  DummyCard,
+  Card,
   ActionGroup,
   PrimaryButton,
   SecondaryButton,
 } from '@components';
 
+const description = {
+  text: 'Saved on turn #5',
+  color: '#fff',
+  background: '#202020',
+  fontSize: '0.8em',
+};
+
 export const DeckPanel = (props) => {
   const title = props.title;
   const deck = [];
+  const dummyCard = props.dummyCard;
 
-  for (let i = 0; i < 12; ++i) deck.push(<DummyCard key={i} />);
+  for (let i = 0; i < 12; ++i)
+    deck.push(
+      <Card key={i} description={description} art={dummyCard} width={223/1.2}px height={311/1.2}px onClick={() => alert('I clicked a card')} />,
+    );
 
   return (
     <div

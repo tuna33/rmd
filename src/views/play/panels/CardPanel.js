@@ -4,11 +4,18 @@ import {
   RectangularPanelBody,
   RectangularPanelHeader,
   ActionGroup,
+  Card,
 } from '@components';
 
 export const CardPanel = (props) => {
   const title = props.title;
   const card = props.card;
+  const description = {
+    text: 'Saved on turn #5',
+    color: '#fff',
+    background: '#202020',
+    fontSize: '0.8em',
+  };
 
   return (
     <div
@@ -39,13 +46,12 @@ export const CardPanel = (props) => {
         }}
       >
         {/* Card here */}
-        <img
-          src={card}
-          style={{
-            margin: '3% 13% 0% 13%',
-            width: '64%',
-            height: '78%',
-          }}
+        <Card
+          margin="3% 13% 0% 13%"
+          width="64%"
+          height="78%"
+          art={card}
+          description={description}
         />
         {/* Buttons here */}
         <ActionGroup width="50%" margin="8% 0%">
