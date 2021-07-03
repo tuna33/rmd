@@ -5,6 +5,8 @@ import {
   RectangularPanelBody,
   RectangularPanelHeader,
 } from './RectangularPanel';
+import { ActionGroup } from './ActionGroup';
+import { DummyCard } from './Card';
 
 export {
   Header,
@@ -14,4 +16,6 @@ export {
   HoverableImage,
   RectangularPanelBody,
   RectangularPanelHeader,
+  ActionGroup,
+  DummyCard,
 };
