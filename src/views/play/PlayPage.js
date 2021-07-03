@@ -4,6 +4,8 @@ import { RectangularPanelHeader, RectangularPanelBody } from '@components';
 import { PrimaryButton, SecondaryButton } from '../../components';
 import styled from 'styled-components';
 
+const dummyCard = require('@assets/dummy-card.jpg');
+
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 40% 60%;
@@ -34,12 +36,43 @@ const CardPanel = (props) => {
       >
         <p>{title}</p>
       </RectangularPanelHeader>
-      <RectangularPanelBody color="#202020" width="100%" height="90%">
+      <RectangularPanelBody color="#202020" width="100%" height="90%" style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}>
         {/* Card here */}
+        <img src={dummyCard} style={{
+          margin: '3% 13% 0% 13%',
+          width: '64%',
+          height: '78%',
+        }}/>
+        {/* Buttons here */}
+        <div
+          style={{
+            width: '50%',
+            display: 'flex',
+            justifyContent: 'space-around',
+            margin: '8% 0%',
+          }}
+        >
+          <button>DISCARD</button>
+          <button>KEEP</button>
+        </div>
       </RectangularPanelBody>
     </div>
   );
 };
+
+const Circle = styled.div`
+  position: relative;
+  border-radius: 50%;
+  width: ${props => props.size};
+  height: auto;
+  padding-top: ${props => props.size};
+  background: white;
+  outline: ${props => props.selected ? `4px solid orange` : ''};
+`;
 
 const FilterPanel = (props) => {
   const title = props.title;
@@ -64,6 +97,50 @@ const FilterPanel = (props) => {
       </RectangularPanelHeader>
       <RectangularPanelBody color="#202020" width="100%" height="80%">
         {/* Filters here */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          width: '90%',
+          margin: 'auto',
+          padding: '7% 0% 0% 0%',
+        }}>
+          <Circle size='10%' selected/>
+          <Circle size='10%' />
+          <Circle size='10%' selected />
+          <Circle size='10%' />
+          <Circle size='10%' />
+        </div>
+
+        <div
+          style={{
+            width: '90%',
+            display: 'flex',
+            justifyContent: 'space-around',
+            margin: 'auto',
+            paddingTop: '10%',
+            flexShrink: '0',
+          }}
+        >
+          <select name="A">
+            <option value="a">All supertypes</option>
+            <option value="a">A</option>
+            <option value="a">A</option>
+            <option value="a">A</option>
+            <option value="a">A</option>
+            <option value="a">A</option>
+            <option value="a">A</option>
+          </select>
+
+          <select name="B">
+            <option value="a">All types</option>
+            <option value="a">A</option>
+            <option value="a">A</option>
+            <option value="a">A</option>
+            <option value="a">A</option>
+            <option value="a">A</option>
+            <option value="a">A</option>
+          </select>
+        </div>
       </RectangularPanelBody>
     </div>
   );
@@ -83,7 +160,7 @@ const DeckPanel = (props) => {
   const title = props.title;
   const deck = [];
 
-  for (let i = 0; i < 12; ++i) deck.push(<DummyCard />);
+  for (let i = 0; i < 12; ++i) deck.push(<DummyCard key={i} />);
 
   return (
     <div
