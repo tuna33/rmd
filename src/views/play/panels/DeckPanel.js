@@ -13,7 +13,7 @@ const description = {
   text: 'Saved on turn #5',
   color: '#fff',
   background: '#202020',
-  fontSize: '0.8em',
+  fontSize: '0.8',
 };
 
 export const DeckPanel = (props) => {
@@ -23,7 +23,7 @@ export const DeckPanel = (props) => {
 
   for (let i = 0; i < 12; ++i)
     deck.push(
-      <Card key={i} description={description} art={dummyCard} width={223/1.2}px height={311/1.2}px onClick={() => alert('I clicked a card')} />,
+      <Card key={i} description={description} art={dummyCard} width={223/1.8}px height={311/1.8}px onClick={() => alert('I clicked a card')} />,
     );
 
   return (
@@ -54,6 +54,7 @@ export const DeckPanel = (props) => {
           flexShrink: '0',
           flexGrow: '0',
           overflow: 'scroll',
+          justifyContent: 'space-around',
         }}
       >
         {/* Image list here */}
