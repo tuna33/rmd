@@ -7,6 +7,20 @@ import {
   Card,
 } from '@components';
 
+import styled from 'styled-components';
+
+const ActionButton = styled.button`
+  padding: 10px;
+`;
+
+const discardCard = (fromDeck) => {
+  alert(`You've discarded a ${fromDeck ? "deck" : "random"} card`);
+};
+
+const addCard = (fromDeck) => {
+  alert(`You've ${fromDeck ? "kept" : "added"} a card`);
+};
+
 export const CardPanel = (props) => {
   const title = props.title;
   const card = props.card;
@@ -49,14 +63,14 @@ export const CardPanel = (props) => {
         <Card
           margin="3% 13% 0% 13%"
           width="64%"
-          height="78%"
+          height="80%"
           art={card}
           description={description}
         />
         {/* Buttons here */}
-        <ActionGroup width="50%" margin="8% 0%">
-          <button>DISCARD</button>
-          <button>KEEP</button>
+        <ActionGroup width="50%" margin="3% 0%">
+          <ActionButton onClick={() => discardCard(true)}>🗑️</ActionButton>
+          <ActionButton onClick={() => addCard(true)}>➕</ActionButton>
         </ActionGroup>
       </RectangularPanelBody>
     </div>
