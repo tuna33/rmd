@@ -9,32 +9,58 @@ import {
   SecondaryButton,
 } from '@components';
 
-const description = {
-  text: 'Saved on turn #5',
-  color: '#fff',
-  background: '#202020',
-  fontSize: '0.8',
+const DeckCard = (props) => {
+  const outline = props.selected ? '2px solid #f7b267' : 'none';
+  return (
+    <div
+      style={{
+        outline: outline,
+        margin: '1% 1%',
+      }}
+    >
+      <Card
+        description={props.description}
+        art={props.art}
+        width={props.width}
+        height={props.height}
+        onClick={props.onClick}
+        selected={props.selected}
+      />
+    </div>
+  );
 };
 
 export const DeckPanel = (props) => {
   const title = props.title;
-  const deck = [];
-  const dummyCard = props.dummyCard;
+  const deck = props.deck;
+  const handleDeckAction = props.handleDeckAction;
+  const handleCardClick = props.handleCardClick;
+  const maxSize = props.maxSize;
+  const activeCardIdx = props.activeCardIdx;
 
-  for (let i = 0; i < 12; ++i)
-    deck.push(
-      <Card
+  const deckList = [];
+
+  for (let i = 0; i < deck.length; ++i) {
+    const description = {
+      text: `Added on turn #${deck[i].turn}`,
+      color: '#fff',
+      background: '#202020',
+      fontSize: '0.8',
+    };
+    deckList.push(
+      <DeckCard
         key={i}
         description={description}
-        art={dummyCard}
+        art={deck[i].art}
         width={223 / 1.8}
         px
         height={311 / 1.8}
         px
-        onClick={() => alert('I clicked a card')}
+        onClick={() => handleCardClick(i, deck[i])}
+        selected={activeCardIdx === i}
       />,
     );
-
+  }
   return (
     <div
       style={{
@@ -64,23 +90,21 @@ export const DeckPanel = (props) => {
           flexGrow: '0',
           overflow: 'scroll',
           justifyContent: 'space-around',
+          alignItems: 'center',
         }}
       >
         {/* Image list here */}
-        {deck}
+        {deckList}
       </RectangularPanelBody>
       <ActionGroup width="70%" margin="auto" padding="10% 0% 0% 0%">
         <PrimaryButton
           text="FINISH DECK"
-          onClick={() => {
-            alert('Finished deck');
-          }}
+          onClick={() => handleDeckAction(true)}
+          disabled={deck.length === maxSize}
         />
         <SecondaryButton
           text="CLEAR DECK"
-          onClick={() => {
-            alert('Cleared deck');
-          }}
+          onClick={() => handleDeckAction(false)}
         />
       </ActionGroup>
     </div>

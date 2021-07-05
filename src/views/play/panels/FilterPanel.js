@@ -25,45 +25,57 @@ const Mana = styled.div`
   background-size: 100%;
   background-repeat: no-repeat;
   outline: ${(props) => (props.selected ? `4px solid #f7b267` : '')};
+  :hover {
+    outline: 4px solid #fff;
+  }
 `;
+
+const superTypes = ['Basic', 'Legendary', 'Ongoing', 'Snow', 'World'];
+
+const types = [
+  'Artifact',
+  'Conspiracy',
+  'Creature',
+  'Enchantment',
+  'Instant',
+  'Land',
+  'Phenomenon',
+  'Plane',
+  'Planeswalker',
+  'Scheme',
+  'Sorcery',
+  'Tribal',
+  'Vanguard',
+];
 
 export const FilterPanel = (props) => {
   const title = props.title;
-  const selectedMana = {
-    white: true,
-    blue: false,
-    black: true,
-    red: false,
-    green: false,
-  };
-
-  const superTypes = ['Basic', 'Legendary', 'Ongoing', 'Snow', 'World'];
-
-  const types = [
-    'Artifact',
-    'Conspiracy',
-    'Creature',
-    'Enchantment',
-    'Instant',
-    'Land',
-    'Phenomenon',
-    'Plane',
-    'Planeswalker',
-    'Scheme',
-    'Sorcery',
-    'Tribal',
-    'Vanguard',
-  ];
+  const selectedMana = props.mana;
+  const selectedType = props.type;
+  const selectedSupertype = props.supertype;
+  const handleBonusChange = props.handleBonusChange;
+  const handleManaChange = props.handleManaChange;
 
   const manaList = Object.keys(selectedMana).map((c) => (
-    <Mana size="10%" image={manaArt[c]} selected={selectedMana[c]} />
+    <Mana
+      size="10%"
+      key={c}
+      id={c}
+      image={manaArt[c]}
+      selected={selectedMana[c]}
+      onClick={handleManaChange}
+    />
   ));
-  const superTypeOptions = ['All Supertypes']
-    .concat(superTypes)
-    .map((st) => <option value={st}>{st}</option>);
-  const typeOptions = ['All Types']
-    .concat(types)
-    .map((t) => <option value={t}>{t}</option>);
+  const superTypeOptions = ['All Supertypes'].concat(superTypes).map((st) => (
+    <option value={st} key={st}>
+      {st}
+    </option>
+  ));
+  const typeOptions = ['All Types'].concat(types).map((t) => (
+    <option value={t} key={t}>
+      {t}
+    </option>
+  ));
 
   return (
     <div
@@ -84,7 +96,6 @@ export const FilterPanel = (props) => {
         <p>{title}</p>
       </RectangularPanelHeader>
       <RectangularPanelBody color="#202020" width="100%" height="80%">
-        {/* Filters here */}
         <div
           style={{
             display: 'flex',
@@ -98,9 +109,24 @@ export const FilterPanel = (props) => {
         </div>
 
         <ActionGroup width="90%" margin="auto" padding="10% 0% 0% 0%">
-          <select name="Supertypes">{superTypeOptions}</select>
-
-          <select name="Types">{typeOptions}</select>
+          {selectedSupertype && (
+            <select
+              name="supertype"
+              value={selectedSupertype}
+              onChange={handleBonusChange}
+            >
+              {superTypeOptions}
+            </select>
+          )}
+          {selectedType && (
+            <select
+              name="type"
+              value={selectedType}
+              onChange={handleBonusChange}
+            >
+              {typeOptions}
+            </select>
+          )}
         </ActionGroup>
       </RectangularPanelBody>
     </div>

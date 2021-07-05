@@ -13,21 +13,24 @@ const ActionButton = styled.button`
   padding: 10px;
 `;
 
-const discardCard = (fromDeck) => {
-  alert(`You've discarded a ${fromDeck ? 'deck' : 'random'} card`);
-};
-
-const addCard = (fromDeck) => {
-  alert(`You've ${fromDeck ? 'kept' : 'added'} a card`);
-};
-
 export const CardPanel = (props) => {
   const title = props.title;
   const card = props.card;
+  const handleCardAction = props.handleCardAction;
+  const isDummy = props.isDummy;
+  const isFromDeck = props.isFromDeck;
+
+  let text = undefined,
+    background = 'none';
+  if (isFromDeck) {
+    text = `Added on turn #${card.turn}`;
+    background = '#202020';
+  }
+
   const description = {
-    text: 'Saved on turn #5',
+    text: text,
     color: '#fff',
-    background: '#202020',
+    background: background,
     fontSize: '0.8em',
   };
 
@@ -64,14 +67,20 @@ export const CardPanel = (props) => {
           margin="3% 13% 0% 13%"
           width="64%"
           height="80%"
-          art={card}
+          art={card.art}
           description={description}
         />
         {/* Buttons here */}
-        <ActionGroup width="50%" margin="3% 0%">
-          <ActionButton onClick={() => discardCard(true)}>🗑️</ActionButton>
-          <ActionButton onClick={() => addCard(true)}>➕</ActionButton>
-        </ActionGroup>
+        {!isDummy && (
+          <ActionGroup width="50%" margin="3% 0%">
+            <ActionButton onClick={() => handleCardAction(false)}>
+              🗑️
+            </ActionButton>
+            <ActionButton onClick={() => handleCardAction(true)}>
+              ➕
+            </ActionButton>
+          </ActionGroup>
+        )}
       </RectangularPanelBody>
     </div>
   );
