@@ -7,18 +7,63 @@ import {
   ActionGroup,
 } from '@components';
 
-const Circle = styled.div`
+const manaArt = {
+  white: require('@assets/mana-white.jpg'),
+  blue: require('@assets/mana-blue.jpg'),
+  black: require('@assets/mana-black.jpg'),
+  red: require('@assets/mana-red.jpg'),
+  green: require('@assets/mana-green.jpg'),
+};
+
+const Mana = styled.div`
   position: relative;
   border-radius: 50%;
   width: ${(props) => props.size};
   height: auto;
   padding-top: ${(props) => props.size};
-  background: white;
-  outline: ${(props) => (props.selected ? `4px solid orange` : '')};
+  background-image: url(${(props) => props.image});
+  background-size: 100%;
+  background-repeat: no-repeat;
+  outline: ${(props) => (props.selected ? `4px solid #f7b267` : '')};
 `;
 
 export const FilterPanel = (props) => {
   const title = props.title;
+  const selectedMana = {
+    white: true,
+    blue: false,
+    black: true,
+    red: false,
+    green: false,
+  };
+
+  const superTypes = ['Basic', 'Legendary', 'Ongoing', 'Snow', 'World'];
+
+  const types = [
+    'Artifact',
+    'Conspiracy',
+    'Creature',
+    'Enchantment',
+    'Instant',
+    'Land',
+    'Phenomenon',
+    'Plane',
+    'Planeswalker',
+    'Scheme',
+    'Sorcery',
+    'Tribal',
+    'Vanguard',
+  ];
+
+  const manaList = Object.keys(selectedMana).map((c) => (
+    <Mana size="10%" image={manaArt[c]} selected={selectedMana[c]} />
+  ));
+  const superTypeOptions = ['All Supertypes']
+    .concat(superTypes)
+    .map((st) => <option value={st}>{st}</option>);
+  const typeOptions = ['All Types']
+    .concat(types)
+    .map((t) => <option value={t}>{t}</option>);
 
   return (
     <div
@@ -49,33 +94,13 @@ export const FilterPanel = (props) => {
             padding: '7% 0% 0% 0%',
           }}
         >
-          <Circle size="10%" selected />
-          <Circle size="10%" />
-          <Circle size="10%" selected />
-          <Circle size="10%" />
-          <Circle size="10%" />
+          {manaList}
         </div>
 
         <ActionGroup width="90%" margin="auto" padding="10% 0% 0% 0%">
-          <select name="A">
-            <option value="a">All supertypes</option>
-            <option value="a">A</option>
-            <option value="a">A</option>
-            <option value="a">A</option>
-            <option value="a">A</option>
-            <option value="a">A</option>
-            <option value="a">A</option>
-          </select>
+          <select name="Supertypes">{superTypeOptions}</select>
 
-          <select name="B">
-            <option value="a">All types</option>
-            <option value="a">A</option>
-            <option value="a">A</option>
-            <option value="a">A</option>
-            <option value="a">A</option>
-            <option value="a">A</option>
-            <option value="a">A</option>
-          </select>
+          <select name="Types">{typeOptions}</select>
         </ActionGroup>
       </RectangularPanelBody>
     </div>

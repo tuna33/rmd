@@ -23,7 +23,16 @@ export const DeckPanel = (props) => {
 
   for (let i = 0; i < 12; ++i)
     deck.push(
-      <Card key={i} description={description} art={dummyCard} width={223/1.8}px height={311/1.8}px onClick={() => alert('I clicked a card')} />,
+      <Card
+        key={i}
+        description={description}
+        art={dummyCard}
+        width={223 / 1.8}
+        px
+        height={311 / 1.8}
+        px
+        onClick={() => alert('I clicked a card')}
+      />,
     );
 
   return (

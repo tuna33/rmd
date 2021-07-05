@@ -14,11 +14,11 @@ const ActionButton = styled.button`
 `;
 
 const discardCard = (fromDeck) => {
-  alert(`You've discarded a ${fromDeck ? "deck" : "random"} card`);
+  alert(`You've discarded a ${fromDeck ? 'deck' : 'random'} card`);
 };
 
 const addCard = (fromDeck) => {
-  alert(`You've ${fromDeck ? "kept" : "added"} a card`);
+  alert(`You've ${fromDeck ? 'kept' : 'added'} a card`);
 };
 
 export const CardPanel = (props) => {
