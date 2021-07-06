@@ -3,6 +3,8 @@ import { withRouter } from 'react-router-dom';
 
 import styled from 'styled-components';
 import { DeckPanel } from './panels/DeckPanel';
+import { StatsPanel } from './panels/StatsPanel';
+import { ManaCurve } from './ManaCurve';
 
 const Grid = styled.div`
   display: grid;
@@ -28,7 +30,10 @@ const ViewPage = (props) => {
   return (
     <Grid>
       <div />
-      <div style={{ backgroundColor: 'red' }}>Top content here</div>
+      <div style={{ backgroundColor: 'red', marginTop: '2%', display: 'flex' }}>
+        <StatsPanel title="STATISTICS" />
+        <ManaCurve deck={deck} />
+      </div>
       <div />
       <div />
       <DeckPanel title={`DECK CONTENTS`} deck={deck} />
