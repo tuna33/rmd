@@ -32,10 +32,10 @@ const ViewPage = (props) => {
   return (
     <Grid>
       <div />
-      <div style={{ backgroundColor: 'red', marginTop: '2%', display: 'flex' }}>
+      <div style={{ marginTop: '2%', display: 'flex' }}>
         <StatsPanel
           title="STATISTICS"
-          turns={turn - 1}
+          turns={turn}
           typeBonus={typeBonus}
           supertypeBonus={supertypeBonus}
           lands={lands}
@@ -45,7 +45,7 @@ const ViewPage = (props) => {
       </div>
       <div />
       <div />
-      <DeckPanel title={`DECK CONTENTS`} deck={deck} />
+      <DeckPanel title="DECK CONTENTS" deck={deck} />
       <div />
     </Grid>
   );
