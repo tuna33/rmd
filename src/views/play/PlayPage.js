@@ -96,7 +96,14 @@ class PlayPage extends React.Component {
       .then((response) => response.json())
       .then((data) => {
         const art = data.cards[0].imageUrl;
-        this.setActiveCard(RANDOM_CARD_IDX, { turn: turn, art: art });
+        const cost = data.cards[0].cmc;
+        const isLand = data.cards[0].type === 'Land';
+        this.setActiveCard(RANDOM_CARD_IDX, {
+          turn: turn,
+          art: art,
+          cost: cost,
+          isLand: isLand,
+        });
       })
       .catch((error) => {
         if (error.name === 'AbortError')
