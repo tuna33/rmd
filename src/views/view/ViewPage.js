@@ -21,7 +21,7 @@ const ViewPage = (props) => {
   const state = props.location.state;
 
   useEffect(() => {
-    if(state === undefined) {
+    if (state === undefined) {
       // Players tried to access directly without coming from a game, so redirect to home
       props.history.replace({
         pathname: '/',
@@ -29,15 +29,14 @@ const ViewPage = (props) => {
       });
     }
   }, []);
-  
-  if(state) {
+
+  if (state) {
     const deck = state.deck;
     const turn = state.turn;
     const typeBonus = state.typeBonus;
     const supertypeBonus = state.supertypeBonus;
     const lands = deck.filter((c) => c.isLand).length;
     const name = 'RandomDeckName';
-    
 
     return (
       <Grid>
@@ -59,11 +58,9 @@ const ViewPage = (props) => {
         <div />
       </Grid>
     );
+  } else {
+    return <></>;
   }
-  else {
-    return (<></>);
-  }
-  
 };
 
 export default withRouter(ViewPage);

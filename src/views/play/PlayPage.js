@@ -10,8 +10,8 @@ const MAX_DECK_SIZE = 60;
 const DUMMY_CARD_IDX = -1;
 const RANDOM_CARD_IDX = -2;
 
-const defaultTypeName = "All Types";
-const defaultSupertypeName = "All Supertypes";
+const defaultTypeName = 'All Types';
+const defaultSupertypeName = 'All Supertypes';
 
 const dummyCardArt = require('@assets/dummy-card.jpg');
 const dummyCard = {
@@ -166,7 +166,8 @@ class PlayPage extends React.Component {
     if (random <= 40) this.setState({ type: defaultTypeName, supertype: null });
     else if (random <= 70)
       this.setState({ type: null, supertype: defaultSupertypeName });
-    else this.setState({ type: defaultTypeName, supertype: defaultSupertypeName });
+    else
+      this.setState({ type: defaultTypeName, supertype: defaultSupertypeName });
   }
 
   handleCardAction = (isAdd) => {

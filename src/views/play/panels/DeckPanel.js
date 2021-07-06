@@ -97,13 +97,13 @@ export const DeckPanel = (props) => {
         {deckList}
       </RectangularPanelBody>
       <ActionGroup width="70%" margin="auto" padding="10% 0% 0% 0%">
-        {deck.length === maxSize &&
+        {deck.length === maxSize && (
           <PrimaryButton
             text="FINISH DECK"
             onClick={() => handleDeckAction(true)}
             disabled={deck.length === maxSize}
           />
-        }
+        )}
         <SecondaryButton
           text="CLEAR DECK"
           onClick={() => handleDeckAction(false)}
