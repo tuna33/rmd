@@ -130,7 +130,7 @@ class PlayPage extends React.Component {
   setActiveCard = (index, card) => {
     if (index === DUMMY_CARD_IDX) {
       this.setState({
-        randomCard: dummyCard,
+        randomCard: null,
         activeCardIdx: DUMMY_CARD_IDX,
       });
     } else if (index === RANDOM_CARD_IDX) {
@@ -214,8 +214,9 @@ class PlayPage extends React.Component {
       if (newTurn !== 1 && newTurn % 5 === 1) this.setRandomBonus();
       else this.setState({ type: null, supertype: null });
     } else {
-      // We've just handled a deck card, so go back to the latest random card
-      this.setActiveCard(RANDOM_CARD_IDX, this.state.randomCard);
+      if (this.state.randomCard)
+        this.setActiveCard(RANDOM_CARD_IDX, this.state.randomCard);
+      else this.setActiveCard(DUMMY_CARD_IDX, dummyCard);
     }
   };
 
