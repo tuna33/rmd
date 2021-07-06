@@ -34,9 +34,9 @@ const NavBar = () => {
       <NavLink to="/play" activeClassName="current" exact>
         Play
       </NavLink>
-      <NavLink to="/view" activeClassName="current" exact>
+      {/* <NavLink to="/view" activeClassName="current" exact>
         View
-      </NavLink>
+      </NavLink> */}
       <a href="https://github.com/backyardmonk/rmd">Contribute</a>
     </NavUnlisted>
   );
