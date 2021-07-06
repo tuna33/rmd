@@ -42,4 +42,7 @@ module.exports = {
       '@assets': path.resolve(__dirname, 'src/assets'),
     },
   },
+  output: {
+    path: path.resolve(__dirname, 'public'),
+  },
 };
