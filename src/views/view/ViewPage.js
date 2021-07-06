@@ -22,6 +22,8 @@ const ViewPage = (props) => {
   const turn = props.location.state.turn;
   const typeBonus = props.location.state.typeBonus;
   const supertypeBonus = props.location.state.supertypeBonus;
+  const lands = deck.filter((c) => c.isLand).length;
+  const name = 'RandomDeckName';
   console.log(deck);
   console.log(turn);
   console.log(typeBonus);
@@ -31,7 +33,14 @@ const ViewPage = (props) => {
     <Grid>
       <div />
       <div style={{ backgroundColor: 'red', marginTop: '2%', display: 'flex' }}>
-        <StatsPanel title="STATISTICS" />
+        <StatsPanel
+          title="STATISTICS"
+          turns={turn - 1}
+          typeBonus={typeBonus}
+          supertypeBonus={supertypeBonus}
+          lands={lands}
+          name={name}
+        />
         <ManaCurve deck={deck} />
       </div>
       <div />

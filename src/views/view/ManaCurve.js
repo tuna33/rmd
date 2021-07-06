@@ -3,7 +3,7 @@ import React from 'react';
 // import { RectangularPanelBody, RectangularPanelHeader } from '@components';
 
 export const ManaCurve = (props) => {
-	const deck = props.deck;
+  const deck = props.deck;
 
   return (
     <div

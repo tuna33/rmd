@@ -62,7 +62,7 @@ export const DeckPanel = (props) => {
     >
       <RectangularPanelHeader
         color="#f4845f"
-        height="15%"
+        height="20.5%"
         title={{
           color: '#fff',
           size: '1em',
@@ -87,7 +87,7 @@ export const DeckPanel = (props) => {
         {/* Image list here */}
         {deckList}
       </RectangularPanelBody>
-      <ActionGroup width="70%" margin="auto" padding="5% 0% 0% 0%">
+      <ActionGroup width="70%" margin="auto" padding="2% 0% 0% 0%">
         <PrimaryButton
           text="COPY URL"
           onClick={() => alert('functionality not yet implemented')}
