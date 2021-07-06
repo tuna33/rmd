@@ -113,8 +113,7 @@ class PlayPage extends React.Component {
             cost: cost,
             isLand: isLand,
           });
-        } 
-        catch(error) {
+        } catch (error) {
           console.log(
             `Unlucky! Your filters for the last card yielded no results.`,
           );
@@ -124,8 +123,7 @@ class PlayPage extends React.Component {
       .catch((error) => {
         if (error.name === 'AbortError')
           console.error(`Aborted: ${error.message}`);
-        else
-          throw(error);
+        else throw error;
       });
   }
 
