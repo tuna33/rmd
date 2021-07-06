@@ -10,6 +10,9 @@ const MAX_DECK_SIZE = 60;
 const DUMMY_CARD_IDX = -1;
 const RANDOM_CARD_IDX = -2;
 
+const defaultTypeName = "All Types";
+const defaultSupertypeName = "All Supertypes";
+
 const dummyCardArt = require('@assets/dummy-card.jpg');
 const dummyCard = {
   turn: DUMMY_CARD_IDX,
@@ -51,7 +54,7 @@ class PlayPage extends React.Component {
       supertype: null,
       type: null,
       turn: 1,
-      deck: [], // Array of {turn: X, art: (image)}
+      deck: [],
     };
     this.controller = new AbortController();
     this.typeBonusUsed = 0;
@@ -75,8 +78,14 @@ class PlayPage extends React.Component {
     manaString = manaString.slice(0, manaString.length - 1);
     let url = `https://api.magicthegathering.io/v1/cards?random=true&pageSize=1&contains=imageUrl`;
     url += `&colorIdentity=${manaString}`;
-    if (type) url += `&type=${type}`;
-    if (supertype) url += `&supertype=${supertype}`;
+    if (type && type !== defaultTypeName) {
+      this.typeBonusUsed++;
+      url += `&type=${type}`;
+    }
+    if (supertype && supertype !== defaultSupertypeName) {
+      this.supertypeBonusUsed++;
+      url += `&supertype=${supertype}`;
+    }
     console.log(`Using Url: ${url}`);
     return url;
   }
@@ -89,7 +98,6 @@ class PlayPage extends React.Component {
     this.controller.abort();
   }
 
-  // TODO: implement filters
   fetchCard(url, turn) {
     this.setActiveCard(DUMMY_CARD_IDX, dummyCard);
     fetch(url, { signal: this.controller.signal })
@@ -112,7 +120,7 @@ class PlayPage extends React.Component {
           console.log(
             `Unlucky! Your filters for the last card yielded no results.`,
           );
-          return this.fetchCard(this.getCardUrl(undefined, undefined), turn);
+          return this.fetchCard(this.getCardUrl(null, null), turn);
         }
       });
   }
@@ -129,7 +137,6 @@ class PlayPage extends React.Component {
         activeCardIdx: RANDOM_CARD_IDX,
       });
     } else {
-      // Also highlight card in deck (can be inferred from activeCardIdx on DeckPanel)
       this.setState({
         activeCardIdx: index,
       });
@@ -156,10 +163,10 @@ class PlayPage extends React.Component {
 
   setRandomBonus() {
     const random = Math.floor(Math.random() * 100);
-    if (random <= 40) this.setState({ type: 'All Types', supertype: null });
+    if (random <= 40) this.setState({ type: defaultTypeName, supertype: null });
     else if (random <= 70)
-      this.setState({ type: null, supertype: 'All Supertypes' });
-    else this.setState({ type: 'All Types', supertype: 'All Supertypes' });
+      this.setState({ type: null, supertype: defaultSupertypeName });
+    else this.setState({ type: defaultTypeName, supertype: defaultSupertypeName });
   }
 
   handleCardAction = (isAdd) => {
@@ -202,7 +209,7 @@ class PlayPage extends React.Component {
         newTurn,
       );
       if (newTurn !== 1 && newTurn % 5 === 1) this.setRandomBonus();
-      else this.setState({ type: undefined, supertype: undefined });
+      else this.setState({ type: null, supertype: null });
     } else {
       // We've just handled a deck card, so go back to the latest random card
       this.setActiveCard(RANDOM_CARD_IDX, this.state.randomCard);
