@@ -103,25 +103,29 @@ class PlayPage extends React.Component {
     fetch(url, { signal: this.controller.signal })
       .then((response) => response.json())
       .then((data) => {
-        const art = data.cards[0].imageUrl;
-        const cost = data.cards[0].cmc;
-        const isLand = data.cards[0].type === 'Land';
-        this.setActiveCard(RANDOM_CARD_IDX, {
-          turn: turn,
-          art: art,
-          cost: cost,
-          isLand: isLand,
-        });
-      })
-      .catch((error) => {
-        if (error.name === 'AbortError')
-          console.error(`Aborted: ${error.message}`);
-        else if (!data || !data.cards[0]) {
+        try {
+          const art = data.cards[0].imageUrl;
+          const cost = data.cards[0].cmc;
+          const isLand = data.cards[0].type === 'Land';
+          this.setActiveCard(RANDOM_CARD_IDX, {
+            turn: turn,
+            art: art,
+            cost: cost,
+            isLand: isLand,
+          });
+        } 
+        catch(error) {
           console.log(
             `Unlucky! Your filters for the last card yielded no results.`,
           );
           return this.fetchCard(this.getCardUrl(null, null), turn);
         }
+      })
+      .catch((error) => {
+        if (error.name === 'AbortError')
+          console.error(`Aborted: ${error.message}`);
+        else
+          throw(error);
       });
   }
 
