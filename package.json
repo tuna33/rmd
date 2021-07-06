@@ -4,7 +4,7 @@
   "description": "RandomMagicDeck site",
   "main": "index.js",
   "scripts": {
-    "format": "prettier --config .prettierrc --write ./**/*.{js,html,css,scss,json}",
+    "format": "prettier --config .prettierrc --write ./**/*.{js,html,css,scss,json} --ignore-path './public/'",
     "start": "webpack serve --port 3000 --open",
     "build": "webpack --mode development"
   },
