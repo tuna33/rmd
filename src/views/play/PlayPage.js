@@ -80,11 +80,11 @@ class PlayPage extends React.Component {
     url += `&colorIdentity=${manaString}`;
     if (type && type !== defaultTypeName) {
       this.typeBonusUsed++;
-      url += `&type=${type}`;
+      url += `&types=${type}`;
     }
     if (supertype && supertype !== defaultSupertypeName) {
       this.supertypeBonusUsed++;
-      url += `&supertype=${supertype}`;
+      url += `&supertypes=${supertype}`;
     }
     console.log(`Using Url: ${url}`);
     return url;
