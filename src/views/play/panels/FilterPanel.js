@@ -5,6 +5,7 @@ import {
   RectangularPanelBody,
   RectangularPanelHeader,
   ActionGroup,
+  Tooltip,
 } from '@components';
 
 const manaArt = {
@@ -92,8 +93,20 @@ export const FilterPanel = (props) => {
           color: '#fff',
           size: '1em',
         }}
+        style={{
+          justifyContent: 'space-between',
+        }}
       >
+        <span />
         <p>{title}</p>
+        <Tooltip style={{ marginRight: '3%' }}>
+          ❔
+          <span>
+            This is the filter panel.
+            <br />
+            Here is where filters are applied.
+          </span>
+        </Tooltip>
       </RectangularPanelHeader>
       <RectangularPanelBody color="#202020" width="100%" height="80%">
         <div
