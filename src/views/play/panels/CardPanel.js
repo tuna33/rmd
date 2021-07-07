@@ -46,7 +46,7 @@ export const CardPanel = (props) => {
       <RectangularPanelHeader
         color="#f4845f"
         height="10%"
-        title={{
+        text={{
           color: '#fff',
           size: '1em',
         }}

@@ -8,8 +8,8 @@ export const RectangularPanelHeader = styled.div`
   align-items: center;
 
   p {
-    color: ${(props) => props.title.color};
-    font-size: ${(props) => props.title.size};
+    color: ${(props) => props.text.color};
+    font-size: ${(props) => props.text.size};
   }
 `;
 

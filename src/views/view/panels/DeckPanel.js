@@ -63,7 +63,7 @@ export const DeckPanel = (props) => {
       <RectangularPanelHeader
         color="#f4845f"
         height="20.5%"
-        title={{
+        text={{
           color: '#fff',
           size: '1em',
         }}

@@ -88,7 +88,7 @@ export const FilterPanel = (props) => {
       <RectangularPanelHeader
         color="#f4845f"
         height="18%"
-        title={{
+        text={{
           color: '#fff',
           size: '1em',
         }}
