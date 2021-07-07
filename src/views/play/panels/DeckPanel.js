@@ -25,6 +25,7 @@ const DeckCard = (props) => {
         height={props.height}
         onClick={props.onClick}
         selected={props.selected}
+        hoverOutline="2px dashed #fff"
       />
     </div>
   );

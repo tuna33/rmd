@@ -20,6 +20,7 @@ export const Card = (props) => {
   const art = props.art;
   const description = props.description;
   const onClick = props.onClick;
+  const hoverOutline = props.hoverOutline;
 
   return (
     <div
@@ -29,7 +30,12 @@ export const Card = (props) => {
         height: height,
       }}
     >
-      <HoverableImage description={description} src={art} onClick={onClick} />
+      <HoverableImage
+        description={description}
+        src={art}
+        onClick={onClick}
+        hoverOutline={hoverOutline}
+      />
     </div>
   );
 };
