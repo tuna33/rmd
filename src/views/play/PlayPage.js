@@ -107,12 +107,20 @@ class PlayPage extends React.Component {
           const art = data.cards[0].imageUrl;
           const cost = data.cards[0].cmc;
           const isLand = data.cards[0].type === 'Land';
-          this.setActiveCard(RANDOM_CARD_IDX, {
+          const card = {
             turn: turn,
             art: art,
             cost: cost,
             isLand: isLand,
-          });
+          };
+
+          this.state.randomCard = card;
+          const activeIdx = this.state.activeCardIdx;
+          // Only set as active card if not previewing a deck card
+          if (activeIdx === DUMMY_CARD_IDX)
+            this.setState({
+              activeCardIdx: RANDOM_CARD_IDX,
+            });
         } catch (error) {
           console.log(
             `Unlucky! Your filters for the last card yielded no results.`,
