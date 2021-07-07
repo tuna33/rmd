@@ -19,6 +19,7 @@ export const CardPanel = (props) => {
   const handleCardAction = props.handleCardAction;
   const isDummy = props.isDummy;
   const isFromDeck = props.isFromDeck;
+  const outline = isFromDeck ? '2px solid #f7b267' : 'none';
 
   let text = undefined,
     background = 'none';
@@ -69,6 +70,7 @@ export const CardPanel = (props) => {
           height="80%"
           art={card.art}
           description={description}
+          outline={outline}
         />
         {/* Buttons here */}
         {!isDummy && (

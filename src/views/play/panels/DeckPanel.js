@@ -14,7 +14,6 @@ const DeckCard = (props) => {
   return (
     <div
       style={{
-        outline: outline,
         margin: '1% 1%',
       }}
     >
@@ -25,6 +24,7 @@ const DeckCard = (props) => {
         height={props.height}
         onClick={props.onClick}
         selected={props.selected}
+        outline={outline}
         hoverOutline="2px dashed #fff"
       />
     </div>
@@ -43,7 +43,7 @@ export const DeckPanel = (props) => {
 
   for (let i = 0; i < deck.length; ++i) {
     const description = {
-      text: `Added on turn #${deck[i].turn}`,
+      text: 'Toggle preview',
       color: '#fff',
       background: '#202020',
       fontSize: '0.8',

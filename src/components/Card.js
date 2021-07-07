@@ -20,6 +20,7 @@ export const Card = (props) => {
   const art = props.art;
   const description = props.description;
   const onClick = props.onClick;
+  const outline = props.outline;
   const hoverOutline = props.hoverOutline;
 
   return (
@@ -34,6 +35,7 @@ export const Card = (props) => {
         description={description}
         src={art}
         onClick={onClick}
+        outline={outline}
         hoverOutline={hoverOutline}
       />
     </div>

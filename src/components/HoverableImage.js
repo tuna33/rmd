@@ -12,6 +12,7 @@ const ImageWrapper = styled.div`
   background-position: 50% 100%;
   background-size: 100%;
   height: 100%;
+  outline: ${(props) => props.outline};
 
   :hover {
     outline: ${(props) => props.hoverOutline};
@@ -41,10 +42,16 @@ export const HoverableImage = (props) => {
   const background = props.description.background;
   const fontSize = props.description.fontSize;
   const onClick = props.onClick;
+  const outline = props.outline;
   const hoverOutline = props.hoverOutline;
 
   return (
-    <ImageWrapper src={src} onClick={onClick} hoverOutline={hoverOutline}>
+    <ImageWrapper
+      src={src}
+      onClick={onClick}
+      outline={outline}
+      hoverOutline={hoverOutline}
+    >
       <DescriptionText
         color={color}
         background={background}

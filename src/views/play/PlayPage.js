@@ -172,6 +172,23 @@ class PlayPage extends React.Component {
       this.setState({ type: defaultTypeName, supertype: defaultSupertypeName });
   }
 
+  handleCardClick = (index, card) => {
+    const activeIdx = this.state.activeCardIdx;
+    if (activeIdx === DUMMY_CARD_IDX || activeIdx === RANDOM_CARD_IDX)
+      this.setActiveCard(index, card);
+    else {
+      if (this.state.deck[activeIdx] === card) {
+        // Same preview card, so take it off
+        if (this.state.randomCard)
+          this.setActiveCard(RANDOM_CARD_IDX, this.state.randomCard);
+        else this.setActiveCard(DUMMY_CARD_IDX, dummyCard);
+      } else {
+        // Different card, so just go to that
+        this.setActiveCard(index, card);
+      }
+    }
+  };
+
   handleCardAction = (isAdd) => {
     const deck = this.state.deck;
     const cardIdx = this.state.activeCardIdx;
@@ -252,7 +269,7 @@ class PlayPage extends React.Component {
     if (activeIdx === RANDOM_CARD_IDX) cardPanelTitle = 'RANDOM CARD';
     else if (activeIdx === DUMMY_CARD_IDX)
       cardPanelTitle = 'LOADING NEXT CARD..';
-    else cardPanelTitle = 'CARD FROM DECK';
+    else cardPanelTitle = 'DECK CARD PREVIEW';
 
     return (
       <Grid>
@@ -280,7 +297,7 @@ class PlayPage extends React.Component {
           title={`MY DECK (${deck.length}/${MAX_DECK_SIZE})`}
           deck={deck}
           activeCardIdx={activeIdx}
-          handleCardClick={this.setActiveCard}
+          handleCardClick={this.handleCardClick}
           handleDeckAction={this.handleDeckAction}
           maxSize={MAX_DECK_SIZE}
         />
