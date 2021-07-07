@@ -29,6 +29,9 @@ const Mana = styled.div`
   :hover {
     outline: 4px solid #fff;
   }
+  :active {
+    outline: 4px solid #f25c54;
+  }
 `;
 
 const superTypes = ['Basic', 'Legendary', 'Ongoing', 'Snow', 'World'];
