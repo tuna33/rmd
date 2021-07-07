@@ -66,13 +66,13 @@ export const DeckPanel = (props) => {
     <div
       style={{
         width: '88%',
-        margin: '12% 6% 2% 6%',
+        margin: '2% 6% 2% 6%',
         height: '60%',
       }}
     >
       <RectangularPanelHeader
         color="#f4845f"
-        height="10%"
+        height="11%"
         text={{
           color: '#fff',
           size: '1em',
@@ -83,7 +83,7 @@ export const DeckPanel = (props) => {
       <RectangularPanelBody
         color="#202020"
         width="100%"
-        height="100%"
+        height="97.5%"
         style={{
           display: 'flex',
           flexFlow: 'row wrap',
