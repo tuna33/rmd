@@ -7,6 +7,7 @@ import {
   ActionGroup,
   PrimaryButton,
   SecondaryButton,
+  TooltipLeft,
 } from '@components';
 
 const DeckCard = (props) => {
@@ -77,8 +78,30 @@ export const DeckPanel = (props) => {
           color: '#fff',
           size: '1em',
         }}
+        style={{
+          justifyContent: 'space-between',
+        }}
       >
+        <span />
         <p>{title}</p>
+        <TooltipLeft width='500px' padding='5' style={{marginRight: '3%'}}>
+          ❔
+          <span>
+            This is the <b>Deck Panel</b>.
+            <br /> <br />
+            Cards you add to your deck will be displayed here.
+            <br /> <br />
+            <b>Card Preview</b>
+            <br />
+            You can click any card to toggle its preview in the Card Panel, and it will be highlighted in orange. Clicking another card will set that one up for preview, with the previous card remaining unchanged in the deck.
+            <br /> <br />
+            <b>Deck Actions</b>
+            <br />
+            At any time, you can clear your deck of all cards. When you reach the maximum deck capacity, and you're happy with the result, you can finish your deck. 
+            <br />
+            <b>WARNING</b> Both of these actions are irreversible!
+          </span>
+        </TooltipLeft>
       </RectangularPanelHeader>
       <RectangularPanelBody
         color="#202020"
