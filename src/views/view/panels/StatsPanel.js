@@ -60,7 +60,7 @@ export const StatsPanel = (props) => {
           justifyContent: 'center',
         }}
       >
-        <StatsEntry field="Deck Name" value={name} />
+        {/* <StatsEntry field="Deck Name" value={name} /> */}
         <StatsEntry field="Turns Used" value={turns} />
         <StatsEntry field="Type Bonus Used" value={typeBonus} />
         <StatsEntry field="Supertype Bonus Used" value={supertypeBonus} />

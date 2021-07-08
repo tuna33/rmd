@@ -88,10 +88,10 @@ export const DeckPanel = (props) => {
         {deckList}
       </RectangularPanelBody>
       <ActionGroup width="70%" margin="auto" padding="2% 0% 0% 0%">
-        <PrimaryButton
+        {/* <PrimaryButton
           text="COPY URL"
           onClick={() => alert('functionality not yet implemented')}
-        />
+        /> */}
       </ActionGroup>
     </div>
   );
