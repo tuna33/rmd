@@ -5,7 +5,7 @@ import {
   RectangularPanelBody,
   RectangularPanelHeader,
   ActionGroup,
-  TooltipTop
+  TooltipTop,
 } from '@components';
 
 const manaArt = {
@@ -102,20 +102,29 @@ export const FilterPanel = (props) => {
       >
         <span />
         <p>{title}</p>
-        <TooltipTop width='500px' padding='5' style={{marginRight: '3%'}}>
+        <TooltipTop width="500px" padding="5" style={{ marginRight: '3%' }}>
           ❔
           <span>
             This is the <b>Filter Panel</b>.
             <br /> <br />
-            When you keep or discard a random card, the filters are used to generate the <i>next random card</i>. If your filters aren't successful, a default search will be done instead.
+            When you keep or discard a random card, the filters are used to
+            generate the <i>next random card</i>. If your filters aren't
+            successful, a default search will be done instead.
             <br /> <br />
             <b>Mana Filter</b>
             <br />
-            Click on a specific mana circle to toggle it on/off. A mana circle is on if it has an orange highlight. All selected color(s) must be present in the result. Other color(s) may appear as long as the selected colors requirement is met.
+            Click on a specific mana circle to toggle it on/off. A mana circle
+            is on if it has an orange highlight. All selected color(s) must be
+            present in the result. Other color(s) may appear as long as the
+            selected colors requirement is met.
             <br /> <br />
             <b>Bonus Filters</b>
             <br />
-            After 5 random card turns, you will get bonus filter(s): Supertype, Type, or both. Choose values to be applied in the next search. Alternatively, use the default options to avoid using these filters. Bonus filters do not stack/carry over to future rounds, even if not used.
+            After 5 random card turns, you will get bonus filter(s): Supertype,
+            Type, or both. Choose values to be applied in the next search.
+            Alternatively, use the default options to avoid using these filters.
+            Bonus filters do not stack/carry over to future rounds, even if not
+            used.
           </span>
         </TooltipTop>
       </RectangularPanelHeader>

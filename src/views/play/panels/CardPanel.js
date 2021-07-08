@@ -57,24 +57,29 @@ export const CardPanel = (props) => {
       >
         <span />
         <p>{title}</p>
-        <TooltipRight width='500px' padding='5' style={{marginRight: '3%'}}>
+        <TooltipRight width="500px" padding="5" style={{ marginRight: '3%' }}>
           ❔
           <span>
             This is the <b>Card Panel</b>.
             <br /> <br />
-            The active card will be displayed here. Both deck previews and random cards will have keep and discard actions.
+            The active card will be displayed here. Both deck previews and
+            random cards will have keep and discard actions.
             <br /> <br />
             <b>Random Card</b>
             <br />
-            Fetched from API according to filters set in the Filter Panel. A dummy card is temporarily displayed as the card loads.
+            Fetched from API according to filters set in the Filter Panel. A
+            dummy card is temporarily displayed as the card loads.
             <br />
-            Click ➕ to add this card to your deck, or 🗑️ to discard this card. You must select one of the above to move onto the next random card.
+            Click ➕ to add this card to your deck, or 🗑️ to discard this card.
+            You must select one of the above to move onto the next random card.
             <br /> <br />
             <b>Deck Preview</b>
             <br />
-            A single card selected from the deck via the Deck Panel. See the Deck Panel for information on how to (de)select a card for preview.
+            A single card selected from the deck via the Deck Panel. See the
+            Deck Panel for information on how to (de)select a card for preview.
             <br />
-            Click ➕ to keep this card in your deck, or 🗑️ to discard this card from your deck.
+            Click ➕ to keep this card in your deck, or 🗑️ to discard this card
+            from your deck.
             <br />
             <b>WARNING!</b> Discarding a card from your deck is irreversible!
           </span>

@@ -7,7 +7,13 @@ import {
 } from './RectangularPanel';
 import { ActionGroup } from './ActionGroup';
 import { DummyCard, Card } from './Card';
-import { Tooltip, TooltipLeft, TooltipRight, TooltipBottom, TooltipTop } from './Tooltip';
+import {
+  Tooltip,
+  TooltipLeft,
+  TooltipRight,
+  TooltipBottom,
+  TooltipTop,
+} from './Tooltip';
 
 export {
   Header,
