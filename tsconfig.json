@@ -3,10 +3,16 @@
 		"module": "ES6",
 		"target": "ES5",
 		"jsx": "react",
-		"allowJs": true,
+		"allowJs": false,
 		"sourceMap": true,
 		"strict": true,
 		"allowSyntheticDefaultImports": true,
+		"baseUrl": "./",
+		"paths": {
+			"@components": ["src/components/index.ts"],
+			"@views": ["src/views/index.ts"],
+		},
+		"moduleResolution": "node",
 	},
 	"include": ["src/**/*"],
 	"exclude": ["node_modules", "**/*.spec.ts"]
