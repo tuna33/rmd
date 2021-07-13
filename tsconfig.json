@@ -11,6 +11,7 @@
 		"paths": {
 			"@components": ["src/components/index.ts"],
 			"@views": ["src/views/index.ts"],
+			"@types": ["src/types.d.ts"],
 		},
 		"moduleResolution": "node",
 	},
