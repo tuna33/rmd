@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {
   Grid,
   Box,
-  Flex,
+  ChakraProvider,
 } from '@chakra-ui/react';
 
-import { HomePage, PlayPage, ViewPage } from '@views';
+import { ExplorePage, HomePage, PlayPage, ViewPage } from '@views';
 import { Header } from '@components';
 
 const columnWidths = ["14%", "72%", "14%"];
@@ -19,27 +19,13 @@ const targets = [
 
 export const App = () => {
   return (
-    <Router>
-      <Grid templateColumns="100%" templateRows="8% 92%">
-        <Header columnWidths={columnWidths} targets={targets} />
-        <Flex>
-          <Box w={columnWidths[0]} />
-          <Box w={columnWidths[1]}>
-            <Switch >
-              <Route path="/play">
-                <PlayPage />
-              </Route>
-              <Route path="/view">
-                <ViewPage />
-              </Route>
-              <Route path="/">
-                <HomePage />
-              </Route>
-            </Switch>
-          </Box>
-          <Box w={columnWidths[2]} />
-        </Flex>
-      </Grid>
-    </Router>  
+    <ChakraProvider>
+      <Router>
+        <Grid templateRows="80px min-content">
+          <Box bg="#585858" />
+          <ExplorePage owner="SomeCoolUser" deckName="Awesome Deck Name" time={10} />
+        </Grid>
+      </Router>
+    </ChakraProvider>
   );
 }

@@ -1,5 +1,5 @@
 import { HomePage } from './home/HomePage';
 import PlayPage from './play/PlayPage';
-import ViewPage from './view/ViewPage';
+import { ExplorePage } from './explore/ExplorePage';
 
-export { HomePage, PlayPage, ViewPage };
+export { HomePage, PlayPage, ExplorePage };
